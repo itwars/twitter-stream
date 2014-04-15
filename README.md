@@ -2,7 +2,7 @@ Build an effective *Twitter stream client* on top of **NodeJS, using Socket.io a
 
 ![Twitter Stream WebApp](/img/screenshot.jpg "Twitter Stream with Bootstrap and node.js")
 
-Clone the repository and in the dashboard.js source code add you own Twitter credentials :
+Clone the repository and in the dashboard.js source code **add your own Twitter credentials** :
 
 ```bash
 git clone https://github.com/itwars/twitter-stream.git
