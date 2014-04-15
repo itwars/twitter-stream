@@ -1,0 +1,21 @@
+{
+  "name": "twitter-stream",
+  "description": "Real-time Twitter Streams webapp",
+  "homepage": "http://nodejs-news.com",
+  "keywords": [
+    "websocket",
+    "socket",
+    "realtime",
+    "socket.io",
+    "twitter"
+  ],
+  "author": {
+    "name": "Vincent RABAH",
+    "email": "vincent.rabah@gmail.com"
+  },
+  "dependencies": {
+    "socket.io": "0.9.16",
+    "ntwitter": "0.5.0",
+    "express": "4.0.0"
+  }
+}

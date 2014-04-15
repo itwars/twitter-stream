@@ -1,46 +1,54 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css">
-  <link rel="" href="bootstrap/css/bootstrap-responsive.css">
-  <title>Dashboard NodeJS + Socket.io</title>
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<style>
+body{padding-top:70px;}
+.dashboard-github{width:320px;height: 53px;margin-right:-15px;margin-left:-10px;}
+</style>
 </head>
 <body>
-    <div class="container-fluid">
-    <div class="navbar">
-        <div class="navbar-inner">
-            <div class="container">
-            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <!-- Be sure to leave the brand out there if you want it shown -->
-            <a class="brand" href="/">Dashboard</a>
-            <!-- Everything you want hidden at 940px or less, place within here -->
-            <div class="nav-collapse collapse" style="height:0px;">
-                <!-- .nav, .navbar-search, .navbar-form, etc -->
-                <ul class="nav">
-                  <li class="active">
-                    <a href="http://www.nodejs-news.com" target="_blank" title="Node.js News web site">NodeJS News</a>
-                  </li>
-                  <li class="divider-vertical"></li>
-                  <li class="">
-                    <a href="http://www.it-wars.com" target="_blank" title="IT Wars yet another Geek">My French blog</a>
-                  </li>
-                </ul>
-            </div>
-            </div>
-        </div>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><span class="icon-vincent font14"></span></a>
     </div>
-        <div class="row-fluid">
-            <div class="span3">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="http://it-wars.com" target="_blank">IT-wars.com</a></li>
+        <li><a href="http://nodejs-news.com" target="_blank">Nodejs-news.com</a></li>
+        <li><a href="http://fr.linkedin.com/in/vrabah/" target="_blank">About the author</a></li>
+        <li>
+         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+         <ins class="adsbygoogle dashboard-github"
+              style="display:inline-block"
+              data-ad-client="ca-pub-6979767156529717"
+              data-ad-slot="3404763334"></ins>
+         <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+         </script>
+         </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </nav>
+<div class="container-fluid">
+   <div class="row">
+      <div class="col-sm-4">
+         <div class="well">
                 <form class="well" id="chat" >
                     <label>Twitter filter</label>
-                    <input type="text" id="data" class="span2" placeholder="Add a Twitter tracker…">
-                    <span class="help-inline">Submit an additional tracker!</span>
+                    <input type="text" id="data" placeholder="Add a Twitter tracker…">
                     <button type="submit" class="btn" onclick="addTrack(); return false;" >Submit</button>
                 </form>
                 <div class="well">
@@ -48,19 +56,26 @@
                     <div id="tracker">
                     </div>
                 </div>
-            </div>
-            <div class="span9">
-                <div class="well" id="twitter-stream">
-            	  <ul class="unstyled">
-        	      </ul>
+                <form class="well" id="twitter" >
+                    <label>Tweet</label>
+                    <input type="text" id="tweet" placeholder="New Tweet…">
+                    <button type="submit" class="btn" onclick="tweetThat(); return false;" >Submit</button>
+                    <p id="text_counter"></p>
+                </form>
+         </div>
+      </div>
+      <div class="col-sm-8">
+         <div class="well">
+                <div id="twitter-stream">
+            	  <ul class="unstyled"></ul>
                 </div>
-            </div>
-        </div>
-    </div>
+         </div>
+      </div>
+   </div>
+</div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="/myscript.js"></script>
-<script src="/bootstrap/js/bootstrap-alert.js"></script>
-<script src="/bootstrap/js/bootstrap-collapse.js"></script>
 </body>
 </html>

@@ -1,20 +1,24 @@
+#!/usr/bin/env node
+
 sys     = require('util');
 express = require('express');
+http = require('http');
 twitter = require('ntwitter');
 
-app = express.createServer();
-app.configure(function(){
+app = express();
+//app.configure(function(){
   app.use(express.static(__dirname + '/public'));
-});
+//});
 
 app.get('/', function(req, res, next){
   res.render('/public/index.html');
 });
-app.listen(8081);
+server = http.createServer(app)
+server.listen(8081);
 console.log('Server running at http://localhost:8081/');
 
-var io  = require('socket.io').listen(app);
-io.set('log level', 1);
+var io  = require('socket.io').listen(server);
+io.set('log level', 0);
 
 myList = [];
 Array.prototype.del = function(val) {
@@ -32,8 +36,14 @@ io.sockets.on('connection', function(socket) {
 	if(action==='+') {
         	myList.push(data);
 	}
-	else {
+	if(action==='-') {
 		myList.del(data);
+	}
+	if(action==='*') {
+            twit.updateStatus(data,
+                function (err, data) {
+//                  console.log(data);
+                });
 	}
     });
     socket.on('getfilter', function() {
@@ -50,9 +60,10 @@ io.sockets.on('connection', function(socket) {
 
 function CreateTwitter() {
 twit = new twitter({
-    consumer_key: '',
-    consumer_secret: '',
-    access_token_key: '',
-    access_token_secret: ''
+
+	consumer_key:         '',
+    	consumer_secret:      '',
+    	access_token_key:     '',
+    	access_token_secret:  ''
 });
 }
